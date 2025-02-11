@@ -81,7 +81,7 @@ class Frame extends React.Component<PropsWithRef> {
           <Iframe
             ref={forwardedRef}
             $showBottomBar={showBottomBar}
-            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-storage-access-by-user-activation"
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-storage-access-by-user-activation allow-modals"
             style={style}
             frameBorder="0"
             title="embed"
@@ -89,6 +89,7 @@ class Frame extends React.Component<PropsWithRef> {
             src={sanitizeUrl(src)}
             referrerPolicy={referrerPolicy}
             allowFullScreen
+            allow="serial"
           />
         )}
         {showBottomBar && (
