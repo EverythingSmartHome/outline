@@ -128,6 +128,7 @@ const mathStyle = (props: Props) => css`
   math-block .math-src .ProseMirror {
     width: 100%;
     display: block;
+    outline: none;
   }
 
   math-block .katex-display {
@@ -313,6 +314,10 @@ width: 100%;
     background: ${props.theme.mentionHoverBackground};
   }
 
+  &[data-type="user"] {
+    gap: 0;
+  }
+
   &.mention-user::before {
     content: "@";
   }
@@ -330,7 +335,7 @@ width: 100%;
   box-sizing: content-box;
 }
 
-.ProseMirror {
+& > .ProseMirror {
   position: relative;
   outline: none;
   word-wrap: break-word;
@@ -703,6 +708,7 @@ img.ProseMirror-separator {
   resize: none;
   user-select: text;
   margin: 0 auto !important;
+  max-width: 100vw;
 }
 
 .ProseMirror[contenteditable="false"] {
@@ -1329,6 +1335,13 @@ mark {
 
 .code-block {
   position: relative;
+}
+
+.code-block[data-language=none],
+.code-block[data-language=markdown] {
+  pre code {
+    color: ${props.theme.text};
+  }
 }
 
 .code-block[data-language=mermaidjs] {
